@@ -6,14 +6,14 @@
 #    By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 16:36:09 by blohrer           #+#    #+#              #
-#    Updated: 2025/03/05 07:51:16 by blohrer          ###   ########.fr        #
+#    Updated: 2025/03/05 08:23:51 by blohrer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = so_long
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror
 
 SRC =
 
@@ -43,12 +43,10 @@ $(NAME): $(OFILES) $(LIBFT)
 clean:
 	rm -f $(OFILES)
 	$(MAKE) -C $(LIBFT_DIR) clean
-	$(MAKE) -C $(FT_PRINTF_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
 	$(MAKE) -C $(LIBFT_DIR) fclean
-	$(MAKE) -C $(FT_PRINTF_DIR) fclean
 
 re: fclean all
 
