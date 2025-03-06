@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 08:00:43 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/05 11:35:52 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/06 11:37:40 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 
-#define WIDTH 100
-#define HEIGHT 100
+#define BUFFER_SIZE 1024
 
 typedef struct s_data
 {
@@ -34,5 +34,9 @@ typedef struct s_data
 	int		height;
 	int		moves;
 }	t_data;
+
+int	map_pce(char **map);
+
+
 
 #endif
