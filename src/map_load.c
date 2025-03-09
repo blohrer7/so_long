@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_r.c                                            :+:      :+:    :+:   */
+/*   map_load.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:16:09 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/08 11:53:21 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 08:29:43 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	render_map(t_data *game)
 {
-	int x, y;
+	int	x;
+	int	y;
+
 	y = 0;
 	while (y < game->height)
 	{
@@ -39,18 +41,18 @@ void	render_map(t_data *game)
 
 char	*read_map_file(char *filename)
 {
-	int	fd;
-	int	bytes_read;
+	static char	buffer[10000];
+	int			fd;
+	int			bytes_read;
 
-	static char buffer[10000]; // ✅ Large buffer to read the entire file
 	fd = open(filename, O_RDONLY);
 	if (fd < 0)
 		return (ft_printf("Error: Could not open file\n"), NULL);
-	bytes_read = read(fd, buffer, 9999); // ✅ Read file into buffer
+	bytes_read = read(fd, buffer, 9999);
 	close(fd);
 	if (bytes_read <= 0)
 		return (ft_printf("Error: Could not read file\n"), NULL);
-	buffer[bytes_read] = '\0'; // ✅ Null-terminate the buffer
+	buffer[bytes_read] = '\0';
 	return (buffer);
 }
 
@@ -64,15 +66,41 @@ char	**load_map(char *filename, int *width, int *height)
 	i = 0;
 	if (!file_content)
 		return (NULL);
-	map = ft_split(file_content, '\n'); // ✅ Split buffer into lines
+	map = ft_split(file_content, '\n');
 	if (!map)
 		return (ft_printf("Error: Memory allocation failed\n"), NULL);
 	*height = 0;
 	while (map[*height])
 		(*height)++;
-	*width = (int)ft_strlen(map[0]); // ✅ First row determines width
+	*width = (int)ft_strlen(map[0]);
 	while (++i < *height)
 		if ((int)ft_strlen(map[i]) != *width)
 			return (ft_printf("Error: Map is not rectangular\n"), NULL);
 	return (map);
+}
+
+void	validate_map_characters(t_data *game)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	while (y < game->height)
+	{
+		x = 0;
+		while (x < game->width)
+		{
+			if (game->map[y][x] != '0' && game->map[y][x] != '1'
+				&& game->map[y][x] != 'P' && game->map[y][x] != 'C'
+				&& game->map[y][x] != 'E')
+			{
+				ft_printf("Error: Invalid character '%c' found in map!\n",
+					game->map[y][x]);
+				exit(1);
+			}
+			x++;
+		}
+		y++;
+	}
 }

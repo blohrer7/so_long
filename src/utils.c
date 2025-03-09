@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:49:25 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 07:17:34 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 08:12:08 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,8 @@ void	check_valid_path(t_data *game)
 			if (temp_map[y][x] == 'C' || temp_map[y][x] == 'E')
 			{
 				free_map(temp_map, game->height);
-				exit(ft_printf("Error: Not all collectibles or exit are reachable!\n"));
+				exit(ft_printf("Error: Not all collectibles or"
+						"exit are reachable!\n"));
 			}
 			x++;
 		}

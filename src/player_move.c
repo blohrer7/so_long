@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 08:47:17 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/08 11:50:29 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 08:10:34 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	get_player_position(t_data *game)
 {
-	int x, y;
+	int	x;
+	int	y;
+
 	y = 0;
 	while (y < game->height)
 	{
@@ -25,8 +27,7 @@ void	get_player_position(t_data *game)
 			{
 				game->p_x = x;
 				game->p_y = y;
-				ft_printf("Player found at: (%d, %d)\n", game->p_x,
-					game->p_y);
+				ft_printf("Player found at: (%d, %d)\n", game->p_x, game->p_y);
 				return ;
 			}
 			x++;

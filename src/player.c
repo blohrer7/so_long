@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:24:24 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/08 11:47:24 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 08:09:26 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_window(t_data *game)
 	game->collectible = load_texture(game, "src/textures/collectible.png");
 	game->exit = load_texture(game, "src/textures/exit.png");
 }
+
 mlx_image_t	*load_texture(t_data *game, char *path)
 {
 	mlx_texture_t	*tex;
@@ -66,8 +67,7 @@ void	check_exit_condition(t_data *game)
 		else
 		{
 			ft_printf("You must collect all items before exiting! Remaining:"
-						"%d\n",
-						game->collectibles_left);
+				"%d\n", game->collectibles_left);
 		}
 	}
 }

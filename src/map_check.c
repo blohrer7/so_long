@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_parser.c                                       :+:      :+:    :+:   */
+/*   map_check.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:31:57 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/08 11:55:53 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 08:27:11 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,8 @@ int	map_pce(t_data *game)
 	count_pce(game, pce);
 	game->collectibles_left = pce[1];
 	if (pce[0] != 1 || pce[1] < 1 || pce[2] != 1)
-		return (ft_printf("Error: Invalid map (1P, 1E, "
-							"at least 1C required)\n"),
-				-1);
+		return (ft_printf("Error: Invalid map (1P, 1E, at"
+				"least 1C required)\n"), -1);
 	ft_printf("Collectibles in map: %d\n", game->collectibles_left);
 	return (1);
 }
@@ -76,55 +75,50 @@ void	check_map_walls(t_data *game)
 	}
 }
 
-char	**copy_map(char **map, int width, int height)
+char	**allocate_map_copy(int width, int height)
 {
 	char	**copy;
 	int		i;
-	int		j;
 
-	if (!(copy = malloc(sizeof(char *) * height)))
+	copy = malloc(sizeof(char *) * height);
+	if (!copy)
 		return (NULL);
 	i = 0;
 	while (i < height)
 	{
-		if (!(copy[i] = malloc(sizeof(char) * (width + 1))))
+		copy[i] = malloc(sizeof(char) * (width + 1));
+		if (!copy[i])
 		{
 			while (--i >= 0)
 				free(copy[i]);
 			free(copy);
 			return (NULL);
 		}
-		j = -1;
-		while (++j < width)
-			copy[i][j] = map[i][j];
-		copy[i][j] = '\0';
 		i++;
 	}
 	return (copy);
 }
 
-void	validate_map_characters(t_data *game)
+char	**copy_map(char **map, int width, int height)
 {
-	int	x;
-	int	y;
+	char	**copy;
+	int		i;
+	int		j;
 
-	x = 0;
-	y = 0;
-	while (y < game->height)
+	copy = allocate_map_copy(width, height);
+	if (!copy)
+		return (NULL);
+	i = 0;
+	while (i < height)
 	{
-		x = 0;
-		while (x < game->width)
+		j = 0;
+		while (j < width)
 		{
-			if (game->map[y][x] != '0' && game->map[y][x] != '1'
-				&& game->map[y][x] != 'P' && game->map[y][x] != 'C'
-				&& game->map[y][x] != 'E')
-			{
-				ft_printf("Error: Invalid character '%c' found in map!\n",
-					game->map[y][x]);
-				exit(1);
-			}
-			x++;
+			copy[i][j] = map[i][j];
+			j++;
 		}
-		y++;
+		copy[i][j] = '\0';
+		i++;
 	}
+	return (copy);
 }
