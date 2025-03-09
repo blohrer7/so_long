@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 11:31:57 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 08:27:11 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:32:59 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	map_pce(t_data *game)
 	count_pce(game, pce);
 	game->collectibles_left = pce[1];
 	if (pce[0] != 1 || pce[1] < 1 || pce[2] != 1)
-		return (ft_printf("Error: Invalid map (1P, 1E, at"
+		return (ft_printf("Error: Invalid map (1P, 1E, at "
 				"least 1C required)\n"), -1);
 	ft_printf("Collectibles in map: %d\n", game->collectibles_left);
 	return (1);

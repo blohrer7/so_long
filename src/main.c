@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:04:56 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 08:26:53 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:36:20 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ int	main(int argc, char **argv)
 	game.moves = 0;
 	game.map = load_map(argv[1], &game.width, &game.height);
 	if (!game.map || map_pce(&game) == -1)
-		return (ft_printf("Error: Invalid map (must contain 1P, at least 1C,"
-				"and 1E)\n"), 1);
+		return (1);
 	validate_map_characters(&game);
 	check_map_walls(&game);
 	get_player_position(&game);
