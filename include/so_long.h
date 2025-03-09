@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 08:00:43 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 08:24:01 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:15:03 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# define BUFFER_SIZE 1024
 
 typedef struct s_data
 {

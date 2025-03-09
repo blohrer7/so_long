@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 17:16:09 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 08:29:43 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/09 09:12:50 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	*read_map_file(char *filename)
 	close(fd);
 	if (bytes_read <= 0)
 		return (ft_printf("Error: Could not read file\n"), NULL);
+	if (bytes_read == 9999)
+		return (ft_printf("Error: Map file is too large!\n"), NULL);
 	buffer[bytes_read] = '\0';
 	return (buffer);
 }
