@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:24:24 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 08:09:26 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/10 09:00:42 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_window(t_data *game)
 {
-	game->mlx = mlx_init(game->width * 32, game->height * 32, "so_long", false);
+	game->mlx = mlx_init(game->width * 32, game->height * 32, "so_long", true);
 	if (!game->mlx)
 		exit(ft_printf("Error: MLX42 initialization failed\n"));
 	game->wall = load_texture(game, "src/textures/wall.png");
