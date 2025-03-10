@@ -6,7 +6,7 @@
 #    By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/25 16:36:09 by blohrer           #+#    #+#              #
-#    Updated: 2025/03/09 07:19:26 by blohrer          ###   ########.fr        #
+#    Updated: 2025/03/10 09:19:00 by blohrer          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ OBJS		= ${SRCS:.c=.o}
 
 all: libft libmlx $(NAME)
 	@echo " "
-	@echo "\033[38;5;214mStart the game with ./so_long maps/MAP_OF_CHOICE.ber\033[0m"
+	@echo "\033[38;5;214mStart the game with ./so_long src/maps/MAP_OF_CHOICE.ber\033[0m"
 
 libft:
 	@make -C $(LIBFT)
