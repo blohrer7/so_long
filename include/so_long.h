@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 08:00:43 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/09 09:15:03 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/10 09:00:31 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ char			*read_map_file(char *filename);
 void			count_pce(t_data *game, int *pce);
 void			validate_map_file(char *filename);
 char			**allocate_map_copy(int width, int height);
+void			handle_resize(int32_t width, int32_t height, void *param);
 
 #endif
