@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/07 11:24:24 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/10 09:00:42 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/10 09:16:27 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,19 @@ void	check_exit_condition(t_data *game)
 				"%d\n", game->collectibles_left);
 		}
 	}
+}
+
+void	clean_exit(t_data *game)
+{
+	if (!game)
+		return ;
+	free_map(game->map, game->height);
+	mlx_delete_image(game->mlx, game->wall);
+	mlx_delete_image(game->mlx, game->floor);
+	mlx_delete_image(game->mlx, game->player);
+	mlx_delete_image(game->mlx, game->collectible);
+	mlx_delete_image(game->mlx, game->exit);
+	mlx_terminate(game->mlx);
+	ft_printf("Game exited successfully.\n");
+	exit(0);
 }
