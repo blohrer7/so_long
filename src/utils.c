@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/08 11:49:25 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/10 09:00:11 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/10 09:18:20 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,8 +86,6 @@ void	handle_resize(int32_t width, int32_t height, void *param)
 	game = (t_data *)param;
 	if (!game || !game->mlx)
 		return ;
-
 	ft_printf("Window resized to: %d x %d\n", width, height);
 	render_map(game);
 }
-
