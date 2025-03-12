@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:04:56 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/12 10:47:35 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/12 12:06:59 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	main(int argc, char **argv)
 	check_valid_path(&game);
 	init_window(&game);
 	mlx_close_hook(game.mlx, (void (*)(void *))clean_exit, &game);
-	mlx_resize_hook(game.mlx, handle_resize, &game);
 	render_map(&game);
 	mlx_key_hook(game.mlx, &handle_input, &game);
 	ft_printf("✅ Game started! Press WASD to move.\n");
