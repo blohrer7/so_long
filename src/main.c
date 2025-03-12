@@ -6,7 +6,7 @@
 /*   By: blohrer <blohrer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 10:04:56 by blohrer           #+#    #+#             */
-/*   Updated: 2025/03/10 09:17:50 by blohrer          ###   ########.fr       */
+/*   Updated: 2025/03/12 10:47:35 by blohrer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int	main(int argc, char **argv)
 	game.moves = 0;
 	if (argc != 2)
 		return (ft_printf("Usage: %s <map_file.ber>\n", argv[0]), 1);
+	validate_map_file(argv[1]);
 	game.map = load_map(argv[1], &game.width, &game.height);
 	if (!game.map)
 		return (1);
